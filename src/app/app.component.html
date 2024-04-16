@@ -2,4 +2,4 @@
   <input igxInput placeholder="Enter a number" type="number" class="test-class" [(ngModel)]="number">
 </igx-input-group>
 <button igxButton [disabled]="!number" class="up-button" (click)="number = number! + 1">UP</button>
-<button igxButton [disabled]="!number" class="down-button">DOWN</button>
+<button igxButton [disabled]="!number" class="down-button" (click)="number = number! - 1">DOWN</button>
