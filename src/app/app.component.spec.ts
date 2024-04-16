@@ -21,11 +21,23 @@ describe('AppComponent', () => {
     const input = fixture.nativeElement.querySelector('.test-class');
     expect(input.value).toEqual('');
   });
-  it('should increment number on up click', () => {
+  it('should render buttons initially disabled', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     fixture.detectChanges();
+    const upButton = fixture.nativeElement.querySelector('.up-button');
+    expect(upButton).toBeDefined();
+    expect(upButton.disabled).toBeTrue();
+
+    const downButton = fixture.nativeElement.querySelector('.down-button');
+    expect(downButton).toBeDefined();
+    expect(downButton.disabled).toBeTrue();
+  });
+  it('should increment number on up click', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
     app.number = 1;
+    fixture.detectChanges();
     const upButton = fixture.nativeElement.querySelector('.up-button');
     expect(upButton).toBeDefined();
     upButton.click();
