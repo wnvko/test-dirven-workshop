@@ -44,4 +44,15 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     expect(app.number).toEqual(2);
   });
+  it('should decrement number on down click', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    app.number = 1;
+    fixture.detectChanges();
+    const downButton = fixture.nativeElement.querySelector('.down-button');
+    expect(downButton).toBeDefined();
+    downButton.click();
+    fixture.detectChanges();
+    expect(app.number).toEqual(0);
+  });
 });
