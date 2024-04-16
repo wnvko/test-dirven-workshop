@@ -13,4 +13,12 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
+  it('should have a number property, which the input is bound to', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    fixture.detectChanges();
+    expect(app.number).toBeUndefined();
+    const input = fixture.nativeElement.querySelector('.test-class');
+    expect(input.value).toEqual('');
+  });
 });
