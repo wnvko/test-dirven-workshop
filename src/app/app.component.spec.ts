@@ -21,4 +21,15 @@ describe('AppComponent', () => {
     const input = fixture.nativeElement.querySelector('.test-class');
     expect(input.value).toEqual('');
   });
+  it('should increment number on up click', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    fixture.detectChanges();
+    app.number = 1;
+    const upButton = fixture.nativeElement.querySelector('.up-button');
+    expect(upButton).toBeDefined();
+    upButton.click();
+    fixture.detectChanges();
+    expect(app.number).toEqual(2);
+  });
 });
